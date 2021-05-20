@@ -55,12 +55,5 @@ def converte_expressao_em_notacao_polonesa_reversa(expressao) -> str:
 
     return expressao_organizada + " <=> " + npr
 
-# print(converte_expressao_em_notacao_polonesa_reversa('3*3'))
-# print(converte_expressao_em_notacao_polonesa_reversa('3*10'))
-# print(converte_expressao_em_notacao_polonesa_reversa('3 * 15'))
-# print(converte_expressao_em_notacao_polonesa_reversa('2 - 3 * 5 + 4'))
-# print(converte_expressao_em_notacao_polonesa_reversa('2 + 31 * 5 - 4'))
-# print(converte_expressao_em_notacao_polonesa_reversa('A(1+2*3)/ 4'))
-# print(converte_expressao_em_notacao_polonesa_reversa('a+b*(c^d-e)^(f+g*h)-i'))
-# print(converte_expressao_em_notacao_polonesa_reversa('(4 + (7 * 4 )) + 12 / 3'))
-print(converte_expressao_em_notacao_polonesa_reversa('(A+B) * (C-D)'))
+def calcula_notacao_expressao_polonesa_reversa(expressao: list):
+    return 0
