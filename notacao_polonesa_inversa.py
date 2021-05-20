@@ -21,7 +21,7 @@ def organiza_expressao(expressao: str) -> str:
             expressao_organizada += caractere
     return expressao_organizada.lstrip().rstrip()
 
-def notacao_polonesa_reversa(expressao) -> list:
+def notacao_polonesa_inversa(expressao) -> list:
     tokens = organiza_expressao(expressao).split(" ")
     Q = deque()
     rpn = []
@@ -49,11 +49,13 @@ def notacao_polonesa_reversa(expressao) -> list:
 
     return rpn
 
-def converte_expressao_em_notacao_polonesa_reversa(expressao) -> str:
+def converte_expressao_em_notacao_polonesa_inversa(expressao) -> str:
     expressao_organizada = organiza_expressao(expressao)
-    npr = " ".join(notacao_polonesa_reversa(expressao_organizada))
+    npr = " ".join(notacao_polonesa_inversa(expressao_organizada))
 
     return expressao_organizada + " <=> " + npr
 
-def calcula_notacao_expressao_polonesa_reversa(expressao: list):
+def calcula_notacao_expressao_polonesa_inversa(expressao: str):
+
+
     return 0

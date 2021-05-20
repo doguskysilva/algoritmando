@@ -1,7 +1,7 @@
 # algoritmando
 Alguns scripts e algoritmos que tento quebrar a cabeça a fim de aprendizado
 
-## Notação Polonesa Reversa
+## Notação Polonesa inversa
 
 ```bash
 pip3 install -U pytest 

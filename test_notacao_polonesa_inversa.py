@@ -1,7 +1,7 @@
 from notacao_polonesa_inversa import (
-    notacao_polonesa_reversa,
+    notacao_polonesa_inversa,
     organiza_expressao,
-    calcula_notacao_expressao_polonesa_reversa,
+    calcula_notacao_expressao_polonesa_inversa,
     ordem_precedencia_eh_maior,
 )
 import pytest
@@ -48,5 +48,14 @@ def test_organiza_expressao(expressao, expected):
         ("(A+B) * (C-D)", ["A", "B", "+", "C", "D", "-", "*"])
     ],
 )
-def test_notacao_polonesa_reversa(expressao, expected):
-    assert notacao_polonesa_reversa(expressao) == expected
+def test_notacao_polonesa_inversa(expressao, expected):
+    assert notacao_polonesa_inversa(expressao) == expected
+
+@pytest.mark.parametrize(
+    "expressao, expected",
+    [
+        ("3*3", 9)
+    ]
+)
+def test_calcula_notacao_expressao_polonesa_inversa(expressao, expected):
+    assert calcula_notacao_expressao_polonesa_inversa(expressao) == expected
