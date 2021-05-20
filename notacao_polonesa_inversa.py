@@ -19,7 +19,7 @@ def organiza_expressao(expressao: str) -> str:
                 expressao_organizada += caractere + " "
         else:
             expressao_organizada += caractere
-    return expressao_organizada
+    return expressao_organizada.lstrip().rstrip()
 
 def notacao_polonesa_reversa(expressao) -> list:
     tokens = organiza_expressao(expressao).split(" ")
