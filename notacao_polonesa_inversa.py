@@ -21,7 +21,7 @@ def organiza_expressao(expressao: str) -> str:
             expressao_organizada += caractere
     return expressao_organizada.lstrip().rstrip()
 
-def notacao_polonesa_inversa(expressao) -> list:
+def notacao_polonesa_inversa(expressao) -> list[str]:
     tokens = organiza_expressao(expressao).split(" ")
     Q = deque()
     rpn = []
@@ -55,7 +55,31 @@ def converte_expressao_em_notacao_polonesa_inversa(expressao) -> str:
 
     return expressao_organizada + " <=> " + npr
 
+def operacao_matematica(num_a, num_b, operacao: str):
+    if operacao == '+':
+        return num_a + num_b
+    elif operacao == '-':
+        return num_a - num_b
+    elif operacao == '*':
+        return num_a * num_b
+    elif operacao == '/':
+        return num_a / num_b
+    elif operacao == '^':
+        return num_a ** num_b
+    else:
+        raise Exception("Operação {}  é invalida") % operacao
+
 def calcula_notacao_expressao_polonesa_inversa(expressao: str):
+    expressao_lista = notacao_polonesa_inversa(expressao)
+    
+    Q = deque()
 
+    for token in expressao_lista:
+        if token.isnumeric():
+            Q.append(int(token))
+        else:
+            ultimo_valor = Q.pop()
+            penultimo_valor = Q.pop()
+            Q.append(operacao_matematica(penultimo_valor, ultimo_valor, token))
 
-    return 0
+    return Q.pop()
