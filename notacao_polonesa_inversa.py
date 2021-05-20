@@ -1,8 +1,8 @@
 from collections import deque
 
-def precedence_is_greater(current_expression, top_expression) -> bool:
-    precedence = { '+': 1, '-': 1, '*': 2, '/': 2, '^': 3 }
-    return precedence.get(current_expression, -1) > precedence.get(top_expression, -1)
+def ordem_precedencia_eh_maior(simbolo_atual, simbolo_ultimo) -> bool:
+    operacoes = { '+': 1, '-': 1, '*': 2, '/': 2, '^': 3 }
+    return operacoes.get(simbolo_atual, -1) > operacoes.get(simbolo_ultimo, -1)
 
 def organiza_expressao(expressao: str) -> str:
     expressao = expressao.replace(" ", "")
@@ -38,20 +38,20 @@ def notacao_polonesa_reversa(expressao) -> list:
                 while (len(Q) > 0 and Q[-1] != '('):
                     rpn.append(Q.pop())
                 Q.pop()
-            elif precedence_is_greater(token, Q[-1]):
+            elif ordem_precedencia_eh_maior(token, Q[-1]):
                 Q.append(token)
             else:
-                while (len(Q) > 0 and precedence_is_greater(token, Q[-1]) == False):
+                while (len(Q) > 0 and ordem_precedencia_eh_maior(token, Q[-1]) == False):
                     rpn.append(Q.pop())
                 Q.append(token)
     while Q:
         rpn.append(Q.pop())
 
-    return " ".join(rpn)
+    return rpn
 
 def converte_expressao_em_notacao_polonesa_reversa(expressao) -> str:
     expressao_organizada = organiza_expressao(expressao)
-    npr = notacao_polonesa_reversa(expressao_organizada)
+    npr = " ".join(notacao_polonesa_reversa(expressao_organizada))
 
     return expressao_organizada + " <=> " + npr
 
