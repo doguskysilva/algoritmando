@@ -74,12 +74,19 @@ def calcula_notacao_expressao_polonesa_inversa(expressao: str):
     
     Q = deque()
 
+    print(expressao_lista)
+
     for token in expressao_lista:
         if token.isnumeric():
             Q.append(int(token))
         else:
             ultimo_valor = Q.pop()
-            penultimo_valor = Q.pop()
-            Q.append(operacao_matematica(penultimo_valor, ultimo_valor, token))
+
+            if not Q:
+                Q.append(operacao_matematica(0, ultimo_valor, token))
+            else:
+                penultimo_valor = Q.pop()
+                Q.append(operacao_matematica(penultimo_valor, ultimo_valor, token))
+        print(Q)
 
     return Q.pop()
